@@ -9,14 +9,33 @@ resource "aws_s3_bucket" "prod_website" {
 
   website {
     index_document = "index.html"
+    
     error_document = "error.html"
 
   }
 }
 
+resource "aws_s3_bucket_object" "index" {
+  bucket       = "${aws_s3_bucket.prod_website.bucket}"
+  key          = "index.html"
+  source       = "index.html"
+  content_type = "text/html"
+
+  acl          = "public-read"
+}
+
+resource "aws_s3_bucket_object" "error" {
+  bucket       = "${aws_s3_bucket.prod_website.bucket}"
+  key          = "error.html"
+  source       = "error.html"
+  content_type = "text/html"
+
+  acl          = "public-read"
+}
 
 resource "aws_s3_bucket_policy" "prod_website" {
   bucket = aws_s3_bucket.prod_website.id
+  
 
   policy = <<POLICY
 {
