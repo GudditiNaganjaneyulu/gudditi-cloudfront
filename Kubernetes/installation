@@ -1,8 +1,8 @@
 Installation Guide
 Start by creating the “mandatory” resources for Nginx Ingress in your cluster.
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
-Then, enable the ingress add-on for Minikube.
+<code><b>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+</code>Then, enable the ingress add-on for Minikube.
 
 minikube addons enable ingress
 Or, if you’re using Docker for Mac to run Kubernetes instead of Minikube.
