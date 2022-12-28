@@ -1,0 +1,17 @@
+Installation Guide
+Start by creating the “mandatory” resources for Nginx Ingress in your cluster.
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+Then, enable the ingress add-on for Minikube.
+
+minikube addons enable ingress
+Or, if you’re using Docker for Mac to run Kubernetes instead of Minikube.
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+Check that it’s all set up correctly.
+
+kubectl get pods --all-namespaces -l app=ingress-nginx
+This has set up the Nginx Ingress Controller. Now, we can create Ingress resources in our Kubernetes cluster and route external requests to our services. Let’s do that.
+
+kubectl apply -f pod.yml 
+kubectl create ingress.yml
