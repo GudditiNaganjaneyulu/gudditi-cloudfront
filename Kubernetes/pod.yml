@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: flaskapp
+  labels:
+    app: flaskapp
+spec:
+  containers:
+    - name: flaskapp
+      image: gudditi/flaskapp
+      
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: flaskapp-service
+spec:
+  selector:
+    app: flaskapp
+  ports:
+    - port: 80 # Default port for image

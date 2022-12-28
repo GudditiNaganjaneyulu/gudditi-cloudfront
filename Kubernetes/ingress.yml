@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+ 
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /flaskapp
+          backend:
+            serviceName: flaskapp-service
+            servicePort: 80
+        
